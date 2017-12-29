@@ -9,6 +9,12 @@ module.exports = {
         sourceMap: true
     },
     dev: {
-
+        port: 8000,
+        proxys: {
+            '/api': {
+                target: 'http://172.17.17.34:8020',
+                changeOrigin: true
+            }
+        }
     }
 };
