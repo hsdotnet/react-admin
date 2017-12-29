@@ -29,7 +29,6 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-logger": "^3.0.6",
-    "redux-observable": "^0.14.1",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
