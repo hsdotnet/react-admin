@@ -4,5 +4,11 @@ module.exports = {
     srcPath: path.resolve(__dirname, '..', 'src'),
     buildPath: path.resolve(__dirname, '..', 'dist'),
     libPath: path.resolve(__dirname, '..', 'node_modules'),
-    publicPath: '/'
+    publicPath: '/',
+    build: {
+        sourceMap: true
+    },
+    dev: {
+
+    }
 };

@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const pk = require('../package.json');
-const config = require('./base.config');
+const config = require('./index');
+const baseWebpackConfig = require('./webpack.base.config')
+const merge = require('webpack-merge')
 
 let getDependencies = () => {
     let deps = Object.keys(pk.dependencies);
@@ -15,7 +16,7 @@ let getDependencies = () => {
     return deps;
 }
 
-module.exports = {
+module.exports = merge.smart(baseWebpackConfig, {
     entry: {
         app: './src/index.js',
         vendor: getDependencies()
@@ -26,15 +27,10 @@ module.exports = {
         filename: 'assets/js/[name].[chunkhash:8].js',
         chunkFilename: 'assets/js/[name].[chunkhash:8].js'
     },
+    devtool: config.build.sourceMap ? '#source-map' : false,
     module: {
-        strictExportPresence: true,
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                include: config.srcPath,
-                exclude: config.libPath,
-                use: { loader: 'babel-loader' }
-            }, {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
@@ -52,7 +48,7 @@ module.exports = {
                                 plugins: [
                                     require('postcss-flexbugs-fixes'),
                                     autoprefixer({
-                                        browsers: [ '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9' ],
+                                        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
                                         flexbox: 'no-2009'
                                     })
                                 ]
@@ -65,44 +61,33 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader' }, 
+                        { loader: 'css-loader' },
                         {
                             loader: 'postcss-loader',
                             options: {
                                 plugins: [
                                     require('postcss-flexbugs-fixes'),
                                     autoprefixer({
-                                        browsers: [ '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9' ],
+                                        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
                                         flexbox: 'no-2009'
                                     })
                                 ]
                             }
                         },
-                        { 
+                        {
                             loader: 'less-loader',
                             options: { modifyVars: { "@primary-color": "#1DA57A" } }
                         }
                     ]
                 })
-            }, {
-                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-                use: { 
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192,
-                        name: 'assets/img/[name].[hash:8].[ext]'
-                    }
-                },
-                include: config.srcPath,
-                exclude: config.libPath
             }
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({ 
-            compress: { warnings: false }, 
-            sourceMap: false, 
-            comments: false 
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false },
+            sourceMap: false,
+            comments: false
         }),
         new ExtractTextPlugin({
             filename: 'assets/css/[name].[chunkhash:8].css'
@@ -115,14 +100,14 @@ module.exports = {
             chunks: ['app', 'vendor']
         }),
         new webpack.LoaderOptionsPlugin({
-            minimize: true, 
+            minimize: true,
             debug: false
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor', 
+            name: 'vendor',
             filename: 'assets/js/[name].[chunkhash:8].js',
             minChunks: Infinity
         }),
@@ -132,4 +117,4 @@ module.exports = {
             }
         })
     ]
-};
+})

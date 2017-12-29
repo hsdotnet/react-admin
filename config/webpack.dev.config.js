@@ -2,9 +2,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const config = require('./base.config');
+const config = require('./index');
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webpack.base.config')
 
-module.exports = {
+module.exports = merge.smart(baseWebpackConfig, {
     entry: [
         'babel-polyfill', 'webpack-hot-middleware/client?reload=true&path=/__webpack_hmr', './src/index'
     ],
@@ -13,16 +15,10 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: config.publicPath
     },
-    devtool: '#source-map',
+    devtool: '#cheap-module-eval-source-map',
     module: {
-        strictExportPresence: true,
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                include: config.srcPath,
-                exclude: config.libPath,
-                use: [ { loader: 'babel-loader' } ]
-            }, {
                 test: /\.css$/,
                 use: [
                     { loader: 'style-loader' },
@@ -36,14 +32,14 @@ module.exports = {
                             plugins: [
                                 require('postcss-flexbugs-fixes'),
                                 autoprefixer({
-                                    browsers: [ '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9' ],
+                                    browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
                                     flexbox: 'no-2009'
                                 })
                             ]
                         }
                     }
                 ]
-            },{
+            }, {
                 test: /\.less$/,
                 use: [
                     { loader: 'style-loader' },
@@ -54,28 +50,17 @@ module.exports = {
                             plugins: [
                                 require('postcss-flexbugs-fixes'),
                                 autoprefixer({
-                                    browsers: [ '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9' ],
+                                    browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
                                     flexbox: 'no-2009'
                                 })
                             ]
                         }
                     },
-                    { 
+                    {
                         loader: 'less-loader',
                         options: { modifyVars: { "@primary-color": "#1DA57A" } }
                     }
                 ]
-            }, {
-                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-                use: { 
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192,
-                        name: 'assets/img/[name].[hash:8].[ext]'
-                    }
-                },
-                include: config.srcPath,
-                exclude: config.libPath
             }
         ]
     },
@@ -93,10 +78,10 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            template: './public/index.html', 
-            filename: 'index.html', 
-            favicon: './public/favicon.ico', 
+            template: './public/index.html',
+            filename: 'index.html',
+            favicon: './public/favicon.ico',
             inject: true
         })
     ]
-};
+})
