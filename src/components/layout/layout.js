@@ -6,7 +6,7 @@ import Sider from './sider'
 import Header from './header'
 import Footer from './footer'
 
-import './style/layout.css'
+//import './style/layout.css'
 
 let lastHref
 
@@ -14,26 +14,40 @@ const resize = () => {
     console.log('onresize')
 }
 
-class Layout extends React.Component{
-    constructor(props){
+class Layout extends React.Component {
+    constructor(props) {
         super(props)
     }
 
-    componentWillMount(){
+    componentWillMount() {
         let tid
         window.onresize = () => {
-          clearTimeout(tid)
-          tid = setTimeout(resize(), 300)
+            clearTimeout(tid)
+            tid = setTimeout(resize(), 300)
         }
+        //console.log(this.props);
+        //this.props.fetchTopics({type: this.state.type})
+
+        this.props.fetchUsers();
     }
 
-    render(){
+    getUsers(){
+        this.props.fetchUsers();
+    }
+
+    render() {
         return (
             <div>
-                <Sider {...this.props}/>
-                <Header/>
+                <ul>
+                    {this.props.users.map(user => {
+                        return <li key={user.orderCode}>{user.orderCode}</li>
+                    })}
+                </ul>
+                <input type="button" value="测试" onClick={this.getUsers.bind(this)} />
+                <Sider {...this.props} />
+                <Header />
                 <div className="px-content">{this.props.children}</div>
-                <Footer/>
+                <Footer />
                 <div className="px-nav-dimmer"></div>
             </div>
         )

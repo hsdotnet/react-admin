@@ -3,6 +3,7 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.dev.config');
 const config = require('./base.config');
+const proxy = require('http-proxy-middleware');//引入代理中间件
 const app = express();
 const compiler = webpack(webpackConfig);
 
@@ -21,6 +22,8 @@ app.use(require('webpack-hot-middleware')(compiler));
 const staticPath = path.posix.join('/', 'static');
 
 app.use(staticPath, express.static('./static'));
+
+app.use('/api', proxy({target: 'http://172.17.17.34:8020', changeOrigin: true}));
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));

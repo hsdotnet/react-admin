@@ -7,8 +7,7 @@ import Layout from '../../components/layout/layout';
 
 const mapStateToProps = state => {
     return {
-        navClass: state.layout.navClass,
-        expand: state.layout.expand
+        users: state.layout
     }
 }
 
