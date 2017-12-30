@@ -6,7 +6,7 @@ import Sider from './sider'
 import Header from './header'
 import Footer from './footer'
 
-//import './style/layout.css'
+import './style/layout.css'
 
 let lastHref
 
@@ -31,7 +31,7 @@ class Layout extends React.Component {
         this.props.fetchUsers();
     }
 
-    getUsers(){
+    getUsers() {
         this.props.fetchUsers();
     }
 

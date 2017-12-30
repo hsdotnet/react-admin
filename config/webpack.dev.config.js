@@ -1,20 +1,13 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const autoprefixer = require('autoprefixer');
 const config = require('./index');
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.config')
+const port = process.env.PORT || config.dev.port
 
 module.exports = merge.smart(baseWebpackConfig, {
-    entry: [
-        'babel-polyfill', 'webpack-hot-middleware/client?reload=true&path=/__webpack_hmr', './src/index'
-    ],
-    output: {
-        path: __dirname,
-        filename: 'bundle.js',
-        publicPath: config.publicPath
-    },
     devtool: '#cheap-module-eval-source-map',
     module: {
         rules: [
@@ -66,17 +59,15 @@ module.exports = merge.smart(baseWebpackConfig, {
     },
     plugins: [
         new OpenBrowserPlugin({
-            url: 'http://localhost:' + config.port
+            url: 'http://localhost:' + port
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('development')
-            },
-            '__DEV__': JSON.stringify('true')
+                'NODE_ENV': JSON.stringify(config.dev.env)
+            }
         }),
-
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: 'index.html',

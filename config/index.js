@@ -1,14 +1,26 @@
-const path = require('path');
+const path = require('path')
+
 module.exports = {
-    port: 8000,
     srcPath: path.resolve(__dirname, '..', 'src'),
-    buildPath: path.resolve(__dirname, '..', 'dist'),
     libPath: path.resolve(__dirname, '..', 'node_modules'),
-    publicPath: '/',
     build: {
+        env: 'production',
+        buildPath: path.resolve(__dirname, '..', 'dist'),
+        publicPath: '/',
+        jsDirectory: 'assets/js',
+        cssDirectory: 'assets/css',
+        imageDirectory: 'assets/images',
+        fontDirectory: 'assets/fonts',
         sourceMap: true
     },
     dev: {
+        env: 'development',
+        buildPath: path.resolve(__dirname, '..', 'dist'),
+        publicPath: '/',
+        jsDirectory: 'assets/js',
+        cssDirectory: 'assets/css',
+        imageDirectory: 'assets/images',
+        fontDirectory: 'assets/fonts',
         port: 8000,
         proxys: {
             '/api': {

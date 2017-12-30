@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import {Menu, Icon} from 'antd'
+import {Menu, Icon, Breadcrumb} from 'antd'
 import pathToRegexp from 'path-to-regexp'
 const SubMenu = Menu.SubMenu
 

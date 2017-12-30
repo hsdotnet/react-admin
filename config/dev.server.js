@@ -8,8 +8,9 @@ const express = require('express')
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.dev.config')
 const proxyMiddleware = require('http-proxy-middleware')
+
 const port = process.env.PORT || config.dev.port
-const autoOpenBrowser = !!config.dev.autoOpenBrowser
+
 const proxys = config.dev.proxys
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -44,10 +45,10 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-app.listen(config.port, function (err) {
+app.listen(port, function (err) {
     if (err) {
         console.log(err);
         return;
     }
-    console.log(`Listening at http://localhost:${config.dev.port}`);
+    console.log(`Listening at http://localhost:${port}`);
 });

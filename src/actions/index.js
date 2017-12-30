@@ -13,7 +13,8 @@ const getUsers = (users) => {
 }
 
 export const fetchUsers = () => (dispatch) => {
-    get('/api/order/list', json => {
+    //get('/api/order/list', json => {
+        const json = [{orderCode:'aaa'}]
         dispatch(getUsers(json))
-    })
+    //})
 }

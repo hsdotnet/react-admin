@@ -1,32 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const pk = require('../package.json');
+const path = require('path')
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = require('./index');
 const baseWebpackConfig = require('./webpack.base.config')
 const merge = require('webpack-merge')
 
-let getDependencies = () => {
-    let deps = Object.keys(pk.dependencies);
-    if (deps.indexOf('babel-runtime') != -1) {
-        deps.splice(deps.indexOf('babel-runtime'), 1);
-    }
-    return deps;
-}
-
 module.exports = merge.smart(baseWebpackConfig, {
-    entry: {
-        app: './src/index.js',
-        vendor: getDependencies()
-    },
-    output: {
-        path: config.buildPath,
-        publicPath: config.publicPath,
-        filename: 'assets/js/[name].[chunkhash:8].js',
-        chunkFilename: 'assets/js/[name].[chunkhash:8].js'
-    },
     devtool: config.build.sourceMap ? '#source-map' : false,
     module: {
         rules: [
@@ -90,7 +71,7 @@ module.exports = merge.smart(baseWebpackConfig, {
             comments: false
         }),
         new ExtractTextPlugin({
-            filename: 'assets/css/[name].[chunkhash:8].css'
+            filename: path.posix.join(config.build.cssDirectory, '[name].[hash:8].css')
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -108,12 +89,12 @@ module.exports = merge.smart(baseWebpackConfig, {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            filename: 'assets/js/[name].[chunkhash:8].js',
+            filename: path.posix.join(config.build.jsDirectory, '[name].[hash:8].js'),
             minChunks: Infinity
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+                'NODE_ENV': JSON.stringify(config.build.env)
             }
         })
     ]
