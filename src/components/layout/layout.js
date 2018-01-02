@@ -62,8 +62,6 @@ const Layout = ({ children, location, app, ...others }) => {
         //NProgress.done()
         lastHref = href
     }
-  
-    
 }
 */
 
