@@ -4,7 +4,7 @@ import userAvatar from '../../assets/img/user2-160x160.jpg'
 
 class Sider extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             navClass: 'px-nav',
             expand: document.body.clientWidth > 992

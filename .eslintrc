@@ -1,15 +1,26 @@
 {
+  "extends": "eslint:recommended",
   "rules": {
+    "semi": [2, "never"],
     "no-console": 0,
     "comma-dangle": [2, "never"],
-    "linebreak-style": [0, "windows"],
-    "no-extend-native": 0,
-    "no-param-reassign": 0,
-    "no-restricted-syntax": 0,
-    "no-eval": 0,
-    "no-useless-constructor":0,
-    "no-underscore-dangle": 0,
-    "global-require": 0
+    "no-unused-vars": 0
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "plugins": [
+    "react"
+  ]
 }

@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 const get = (url, callback) => {
   fetch(url).then((response) => response.json())
     .then((data) => {
-      callback(data);
+      callback(data)
     })
 }
 
@@ -15,10 +15,10 @@ const post = function (url, data, callback) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  };
+  }
   fetch(url, fetchOptions).then((response) => response.json())
     .then((data) => {
-      callback(data);
+      callback(data)
     })
 }
 

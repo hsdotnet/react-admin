@@ -11,7 +11,7 @@ class Header extends React.Component{
               <Menu.Divider />
               <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>
             </Menu>
-          );
+          )
 
         return (
             <div className="px-navbar">

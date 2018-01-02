@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const config = require('./index');
+const config = require('./index')
 const baseWebpackConfig = require('./webpack.base.config')
 const merge = require('webpack-merge')
 

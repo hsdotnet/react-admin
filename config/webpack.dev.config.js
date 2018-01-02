@@ -1,8 +1,8 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
-const autoprefixer = require('autoprefixer');
-const config = require('./index');
+const autoprefixer = require('autoprefixer')
+const config = require('./index')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.config')
 const port = process.env.PORT || config.dev.port

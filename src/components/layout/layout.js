@@ -28,11 +28,11 @@ class Layout extends React.Component {
         //console.log(this.props);
         //this.props.fetchTopics({type: this.state.type})
 
-        this.props.fetchUsers();
+        this.props.fetchUsers()
     }
 
     getUsers() {
-        this.props.fetchUsers();
+        this.props.fetchUsers()
     }
 
     render() {

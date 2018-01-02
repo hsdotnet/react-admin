@@ -1,4 +1,4 @@
-import { TOGGLE_SIDER, GET_USERS } from '../constants/actionTypes';
+import { TOGGLE_SIDER, GET_USERS } from '../constants/actionTypes'
 
 /*
 const initialState = {

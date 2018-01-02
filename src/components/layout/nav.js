@@ -43,7 +43,7 @@ const getPathArray = (array, current, pid, id) => {
     const getPath = (item) => {
       if (item && item[pid]) {
         defaultSelectedKeys.unshift(String(item[pid])) // 数组前端插入
-        let parentItem = queryArray(array, item[pid], id)
+        let parentItem = ''//queryArray(array, item[pid], id)
         currentMenuArray.unshift(parentItem)
         getPath(parentItem)
       }
