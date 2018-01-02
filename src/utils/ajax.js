@@ -9,10 +9,10 @@ const get = (url, callback) => {
 
 const post = function (url, data, callback) {
   var fetchOptions = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json"
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   }

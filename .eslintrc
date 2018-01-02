@@ -2,9 +2,11 @@
   "extends": "eslint:recommended",
   "rules": {
     "semi": [2, "never"],
+    "quotes": [2, "single"],
     "no-console": 0,
     "comma-dangle": [2, "never"],
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "no-constant-condition": 0
   },
   "parser": "babel-eslint",
   "parserOptions": {
