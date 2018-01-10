@@ -1,11 +1,11 @@
-import {combineReducers} from 'redux'
-import {routerReducer} from 'react-router-redux'
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
-import layout from './layout'
+import order from './order'
 
-const Index = combineReducers({
-    layout,
-    routing: routerReducer
-  })
-  
-export default Index
+const index = combineReducers({
+  order,
+  routing: routerReducer
+})
+
+export default index

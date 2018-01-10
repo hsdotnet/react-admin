@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes, { func } from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ActionCreators from '../../actions/index'
+import * as ActionCreators from '../../actions/order'
 import Layout from '../../components/layout/layout'
 
 const mapStateToProps = state => {
     return {
-        users: state.layout
+        orders: state.order
     }
 }
 

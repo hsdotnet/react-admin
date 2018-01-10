@@ -6,7 +6,7 @@ import Sider from './sider'
 import Header from './header'
 import Footer from './footer'
 
-import './style/layout.css'
+//import './style/layout.css'
 
 let lastHref
 
@@ -17,6 +17,7 @@ const resize = () => {
 class Layout extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props)
     }
 
     componentWillMount() {
@@ -28,21 +29,17 @@ class Layout extends React.Component {
         //console.log(this.props);
         //this.props.fetchTopics({type: this.state.type})
 
-        this.props.fetchUsers()
+        this.props.getOrdersAction()
     }
 
     getUsers() {
-        this.props.fetchUsers()
+        //this.props.fetchUsers()
     }
 
     render() {
         return (
             <div>
-                <ul>
-                    {this.props.users.map(user => {
-                        return <li key={user.orderCode}>{user.orderCode}</li>
-                    })}
-                </ul>
+                {JSON.stringify(this.props.orders)}
                 <input type="button" value="测试" onClick={this.getUsers.bind(this)} />
                 <Sider {...this.props} />
                 <Header />
