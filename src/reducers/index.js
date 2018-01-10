@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import order from './order'
+import order from '../modules/order/OrderReducer'
 
-const index = combineReducers({
+const reducers = combineReducers({
   order,
   routing: routerReducer
 })
 
-export default index
+export default reducers

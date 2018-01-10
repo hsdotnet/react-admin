@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "es6-promise": "^4.2.2",
     "http-proxy-middleware": "^0.17.4",
+    "immutable": "^3.8.2",
     "isomorphic-fetch": "^2.2.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.5.10",

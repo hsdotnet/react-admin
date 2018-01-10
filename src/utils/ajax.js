@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch'
 
-const get = (url, callback) => {
-  fetch(url).then((response) => response.json())
-    .then((data) => {
-      callback(data)
-    })
+const get = (url) => {
+  return fetch(url, {
+    method: 'GET'
+  }).then(response => response.json()).then(json => {
+    return json
+  }).catch(ex => console.log('parsing failed', ex))
 }
 
 const post = function (url, data, callback) {

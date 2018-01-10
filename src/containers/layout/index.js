@@ -1,8 +1,6 @@
 import React from 'react'
-import PropTypes, { func } from 'prop-types'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as ActionCreators from '../../actions/order'
+import { GET_ORDERS } from '../../modules/order/OrderActions'
 import Layout from '../../components/layout/layout'
 
 const mapStateToProps = state => {
@@ -11,9 +9,9 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return bindActionCreators(ActionCreators, dispatch)
-}
+const mapDispatchToProps = (dispatch) => ({
+    onLoadUsers: () => dispatch({ type: GET_ORDERS })
+})
 
 export default connect(
     mapStateToProps,

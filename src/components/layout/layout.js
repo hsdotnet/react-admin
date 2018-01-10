@@ -17,7 +17,6 @@ const resize = () => {
 class Layout extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props)
     }
 
     componentWillMount() {
@@ -26,14 +25,12 @@ class Layout extends React.Component {
             clearTimeout(tid)
             tid = setTimeout(resize(), 300)
         }
-        //console.log(this.props);
-        //this.props.fetchTopics({type: this.state.type})
 
-        this.props.getOrdersAction()
+        this.props.onLoadUsers()
     }
 
     getUsers() {
-        //this.props.fetchUsers()
+        this.props.onLoadUsers()
     }
 
     render() {
