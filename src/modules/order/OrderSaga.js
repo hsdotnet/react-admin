@@ -5,7 +5,7 @@ import { getOrders } from '../../api/order'
 function* getOrdersAsync() {
     try {
         const json = yield call(getOrders)
-        if (json.success) {
+        if (json.code === 1) {
             yield put(getOrdersSuccessAction(json.data))
         } else {
             yield put(getOrdersFailureAction(json.message))

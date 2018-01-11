@@ -24,7 +24,7 @@ module.exports = {
         port: 8000,
         proxys: {
             '/api': {
-                target: 'http://172.17.17.34:8020',
+                target: 'http://172.17.17.34:8091',
                 changeOrigin: true
             }
         }
