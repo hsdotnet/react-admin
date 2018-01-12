@@ -15,13 +15,14 @@ const proxys = config.dev.proxys
 const app = express()
 const compiler = webpack(webpackConfig)
 
+/*
 Object.keys(proxys).forEach(function (context) {
     var options = proxys[context]
     if (typeof options === 'string') {
         options = { target: options }
     }
     app.use(proxyMiddleware(options.filter || context, options))
-})
+})*/
 
 app.use(require('connect-history-api-fallback')())
 

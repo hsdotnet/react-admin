@@ -15,29 +15,17 @@ const resize = () => {
 }
 
 class Layout extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     componentWillMount() {
         let tid
         window.onresize = () => {
             clearTimeout(tid)
             tid = setTimeout(resize(), 300)
         }
-
-        this.props.onLoadUsers()
-    }
-
-    getUsers() {
-        this.props.onLoadUsers()
     }
 
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.orders)}
-                <input type="button" value="测试" onClick={this.getUsers.bind(this)} />
                 <Sider {...this.props} />
                 <Header />
                 <div className="px-content">{this.props.children}</div>

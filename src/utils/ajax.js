@@ -1,6 +1,16 @@
 import fetch from 'isomorphic-fetch'
 
-const get = (url) => {
+const getUrl = (url, data) => {
+  let params = []
+  Object.keys(data).forEach(function (key) {
+    params.push(`${key}=${data[key]}`)
+  })
+  return url + (url.indexOf('?') > 0 ? '&' : '?') + params.join('&')
+}
+
+const get = (url, data) => {
+  url = getUrl(url, data)
+
   return fetch(url, {
     method: 'GET'
   }).then(response => response.json()).then(json => {

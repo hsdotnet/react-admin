@@ -1,7 +1,7 @@
 import React from 'react'
 import {Router} from 'react-router'
 import PropTypes from 'prop-types'
-import Layout from '../containers/layout/index'
+import Layout from '../components/layout/layout'
 
 const Routers = ({history}) => {
   const routes = [
@@ -10,8 +10,8 @@ const Routers = ({history}) => {
       component: Layout,
       getIndexRoute(location, cb) {
         require.ensure([], (require) => {
-          cb(null, {component: require('../containers/home/index')})
-        }, 'home')
+          cb(null, {component: require('../containers/order/index')})
+        }, 'order')
       },
       childRoutes: [
         {
@@ -19,6 +19,14 @@ const Routers = ({history}) => {
           getComponent(location, cb) {
             require.ensure([], (require) => {
               cb(null, require('../containers/home/index'))
+            }, 'login')
+          }
+        },
+        {
+          path: 'order',
+          getComponent(location, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('../containers/order/index'))
             }, 'login')
           }
         }, {

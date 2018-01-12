@@ -1,22 +1,24 @@
-import { all, call, fork, put, takeLatest } from 'redux-saga/effects'
-import { GET_ORDERS, GET_ORDERS_SUCCESS, GET_ORDERS_FAILURE, getOrdersSuccessAction, getOrdersFailureAction } from './OrderActions'
+import { all, call, fork, put, takeLatest, select } from 'redux-saga/effects'
+import { GET_DATA, GET_DATA_SUCCESS, GET_DATA_FAILURE, getDataSuccessAction, getDataFailureAction } from '../common/CommonActions'
+import { getCommon } from '../common/CommonSelectors'
 import { getOrders } from '../../api/order'
 
 function* getOrdersAsync() {
     try {
-        const json = yield call(getOrders)
+        const common = yield select(getCommon)
+        const json = yield call(getOrders, common.query)
         if (json.code === 1) {
-            yield put(getOrdersSuccessAction(json.data))
+            yield put(getDataSuccessAction(json.data))
         } else {
-            yield put(getOrdersFailureAction(json.message))
+            yield put(getDataFailureAction(json.message))
         }
     } catch (error) {
-        yield put(getOrdersFailureAction(error.response.statusText))
+        yield put(getDataFailureAction(error.response.statusText))
     }
 }
 
 function* watchGetOrdersAsync() {
-    yield takeLatest(GET_ORDERS, getOrdersAsync)
+    yield takeLatest(GET_DATA, getOrdersAsync)
 }
 
 export default function* root() {

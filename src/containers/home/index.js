@@ -1,11 +1,16 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 
-const Index = () => {
-    return (
-        <div>Home</div>
-    )
-}
+class Index extends React.Component {
+    componentWillMount() {
+        
+    }
 
-export default Index
+    render() {
+        return (
+            <div>
+                Home
+            </div>
+        )
+    }
+}

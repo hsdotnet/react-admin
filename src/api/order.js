@@ -1,5 +1,6 @@
 import { get } from '../utils/ajax'
+import { api } from './api'
 
-export function getOrders() {
-    return get('/api/order/list')
+export function getOrders(query) {
+    return get(`${api.orderApi}/order/list`, query)
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { GET_ORDERS } from '../../modules/order/OrderActions'
+import { getOrdersAction } from '../../modules/order/OrderActions'
 import Layout from '../../components/layout/layout'
 
 const mapStateToProps = state => {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoadUsers: () => dispatch({ type: GET_ORDERS })
+    onLoadUsers: () => dispatch(getOrdersAction())
 })
 
 export default connect(
