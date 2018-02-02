@@ -1,0 +1,49 @@
+.px-nav-content{position: relative;z-index: 2;float: none;width: 100%;user-select: none}
+
+.px-nav-item{position:relative;display:block;margin:0;padding:0;list-style:none;}
+
+.px-nav-item>a{position:relative;display:block;text-decoration:none;color:#b8c7ce;font-size:14px}
+.px-nav-content>.px-nav-item>a{padding:15px 5px 15px 15px;border-left:3px solid transparent}
+.px-nav-content>.px-nav-item.active>a{border-left:3px solid #3c8dbc;color:#fff;background:#1e282c}
+.px-nav-dropdown-menu>.px-nav-item>a{padding:8px 5px 8px 15px;}
+.px-nav-dropdown-menu>.px-nav-item>a{padding-left:20px}
+.px-nav-dropdown-menu .px-nav-dropdown-menu>.px-nav-item>a{padding-left:40px}
+
+.px-nav-content>.px-nav-item>a{  color: #ffffff;
+  background: #1e282c;}
+
+.px-nav-item-icon{width:20px;}
+.px-nav-dropdown-icon{position: absolute;right: 10px;top: 50%;margin-top: -7px;}
+
+.px-nav-dropdown-menu{display:none;}
+.px-nav-dropdown-menu.open{display:block}
+.px-nav-content>.px-nav-item>.px-nav-dropdown-menu{background:#2c3b41;}
+
+@media (min-width:544px) and (max-width:991px){
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-dropdown>.px-nav-dropdown-menu{display:none}
+}
+@media (min-width:992px){
+  .px-nav-collapse .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+  .px-nav-collapse .px-nav-content>.px-nav-dropdown>.px-nav-dropdown-menu{display:none}
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label,
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > .px-nav-dropdown-menu {
+  display: block !important;
+  position: absolute;
+  width: 174px;
+  left: 56px;
+}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label {
+  top: 0;
+  margin-left: -3px;
+  padding: 15px 5px 15px 15px;
+  background-color: inherit;
+}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-dropdown-icon {
+  position: relative !important;
+  width: auto !important;
+  left: 174px !important;
+  z-index: 900;
+}
