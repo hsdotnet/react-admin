@@ -11,11 +11,11 @@
 </head>
 <body>
     <div class="px-nav" id="pxNav">
-        <button type="button" class="px-nav-toggle" onclick="pxToggle()">
+        <a class="px-nav-toggle" onclick="pxToggle()">
             <span class="px-nav-toggle-arrow"></span>
             <span class="navbar-toggle-icon"></span>
             <span class="px-nav-toggle-label">隐藏菜单</span>
-        </button>
+        </a>
         <ul class="px-nav-content">
             <li class="px-nav-box">
                 <div class="avatar"><img src="img/user2-160x160.jpg" alt="" /></div>
@@ -24,53 +24,70 @@
                     <a href="javascript:void(0);">Online</a>
                 </div>
             </li>
-            <li class="px-nav-header">nav</li>
-            <li class="px-nav-item px-nav-dropdown">
-                <a href="javascript:void(0);"><i class="fa fa-list px-nav-item-icon"></i><span class="px-nav-item-label">Element</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
-                <ul class="px-nav-dropdown-menu open">
-                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-desktop px-nav-item-icon"></i><span class="px-nav-item-label">Form</span></a></li>
-                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-table px-nav-item-icon"></i><span class="px-nav-item-label">Button</span></a></li>
-                    <li class="px-nav-item px-nav-dropdown">
-                        <a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">Table</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
+            <li class="px-nav-header">导航菜单</li>
+            <li class="px-nav-item active open">
+                <a href="javascript:void(0);"><i class="fa fa-list px-nav-item-icon"></i><span class="px-nav-item-label">系统管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
+                <ul class="px-nav-dropdown-menu">
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-desktop px-nav-item-icon"></i><span class="px-nav-item-label">系统日志</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-table px-nav-item-icon"></i><span class="px-nav-item-label">系统模块</span></a></li>
+                    <li class="px-nav-item open">
+                        <a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">用户管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                         <ul class="px-nav-dropdown-menu">
-                            <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-th px-nav-item-icon"></i><span class="px-nav-item-label">Table1</span></a></li>
-                            <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">Table2</span></a></li>
+                            <li class="px-nav-item active"><a href="javascript:void(0);"><i class="fa fa-th px-nav-item-icon"></i><span class="px-nav-item-label">用户权限</span></a></li>
+                            <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">用户列表</span></a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
-            <li class="px-nav-item px-nav-dropdown">
-                <a href="javascript:void(0);"><i class="fa fa-user px-nav-item-icon"></i><span class="px-nav-item-label">User</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
+            <li class="px-nav-item">
+                <a href="javascript:void(0);"><i class="fa fa-user px-nav-item-icon"></i><span class="px-nav-item-label">订单管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                 <ul class="px-nav-dropdown-menu">
-                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">List</span></a></li>
-                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">Panel</span></a></li>
-                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">Detail</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">订单列表</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">机票订单</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">酒店订单</span></a></li>
+                </ul>
+            </li>
+            <li class="px-nav-item">
+                <a href="javascript:void(0);"><i class="fa fa-user px-nav-item-icon"></i><span class="px-nav-item-label">订单管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
+                <ul class="px-nav-dropdown-menu">
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">订单列表</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">机票订单</span></a></li>
+                    <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">酒店订单</span></a></li>
                 </ul>
             </li>
         </ul>
     </div>
-    <!--<div class="px-navbar">
+    <div class="px-navbar">
+        <div class="px-logo">
+            <a href="index.html">PixelAdmin</a>
+        </div>
+        <a class="navbar-toggle collapsed"><i class="navbar-toggle-icon"></i></a>
         <div class="px-navbar-menu">
         </div>
     </div>
     <div class="px-content">Content</div>
-    <div class="px-nav-dimmer"></div>-->
+    <div class="px-nav-dimmer"></div>
 
     <script type="text/javascript">
-        var expand = document.body.clientWidth > 992;
+        
         
         function pxToggle() {
-            var pxNav = document.getElementById('pxNav');
+            var pxNav = document.getElementById('pxNav'),clssName=pxNav.className;
 
-            if (expand) {
-                pxNav.setAttribute('class', 'px-nav px-nav-collapse');
-            } else {
-                pxNav.setAttribute('class', 'px-nav px-nav-expand');
+            if(clssName==='px-nav'){
+                var expand = document.body.clientWidth > 992;
+                if (expand) {
+                    pxNav.setAttribute('class', 'px-nav px-nav-collapse');
+                } else {
+                    pxNav.setAttribute('class', 'px-nav px-nav-expand');
+                }
+            }else{
+                if (clssName==='px-nav px-nav-collapse') {
+                    pxNav.setAttribute('class', 'px-nav px-nav-expand');
+                } else {
+                    pxNav.setAttribute('class', 'px-nav px-nav-collapse');
+                }        
             }
-
-            expand = !expand;
-
-            console.log(expand)
         }
     </script>
 </body>

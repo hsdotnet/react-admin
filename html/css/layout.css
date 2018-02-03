@@ -2,10 +2,16 @@
 .navbar-toggle{height:50px;line-height:50px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 .navbar-toggle{position:absolute;top:0;margin:0;width:56px;border:none;border-radius:0;text-align:center}
 .navbar-toggle{color: #fff;background-color: transparent;}
+.navbar-toggle>.navbar-toggle-icon{top: 50%}
+.navbar-toggle:hover{background-color: #367fa9}
 
 .px-navbar .navbar-toggle.collapsed .navbar-toggle-icon, .px-navbar .navbar-toggle.collapsed .navbar-toggle-icon:after, .px-navbar .navbar-toggle.collapsed .navbar-toggle-icon:before{
     color: #fff;background: #fff
 }
+
+.px-navbar>.px-logo{width:174px;text-align: center }
+.px-navbar>.px-logo:hover{background-color: #367fa9}
+.px-navbar>.px-logo>a{height:50px; line-height:50px;color: #fff;font-size: 20px;}
 
 .navbar-toggle-icon{position:relative}
 .navbar-toggle-icon,.navbar-toggle-icon:after,.navbar-toggle-icon:before{display:block;width:12px;height:2px;margin:auto;background:#666}
