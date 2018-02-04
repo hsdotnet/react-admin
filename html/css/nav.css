@@ -21,19 +21,25 @@
 
 @media (min-width:544px) and (max-width:991px){
     .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>a .px-nav-dropdown-icon{display:none}
     .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>.px-nav-dropdown-menu{display:none}
 }
 @media (min-width:992px){
   .px-nav-collapse .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+  .px-nav-collapse .px-nav-content>.px-nav-item>a .px-nav-dropdown-icon{display:none}
   .px-nav-collapse .px-nav-content>.px-nav-item>.px-nav-dropdown-menu{display:none}
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-dropdown-icon {
+  display: block !important;
 }
 
 .px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label,
 .px-nav-collapse .px-nav-content>.px-nav-item:hover > .px-nav-dropdown-menu {
   display: block !important;
   position: absolute;
-  width: 174px;
-  left: 56px;
+  width: 180px;
+  left: 50px;
 }
 
 .px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label {
@@ -51,7 +57,12 @@
 }
 .px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-dropdown-icon {
   position: relative !important;
+  float: right;
   width: auto !important;
-  left: 174px !important;
+  left: 175px !important;
+  top: 10px !important;
   z-index: 900;
 }
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover .px-nav-dropdown-menu>.px-nav-item>a{padding-left:15px}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover .px-nav-dropdown-menu .px-nav-dropdown-menu>.px-nav-item>a{padding-left:35px}
