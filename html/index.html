@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Admin</title>
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" type="text/css" />
     <link rel="stylesheet" href="css/layout.css" type="text/css" />
     <link rel="stylesheet" href="css/nav.css" type="text/css" />
 </head>
 <body>
-    <div class="px-nav" id="pxNav">
-        <a class="px-nav-toggle" onclick="pxToggle()">
+    <div class="px-nav">
+        <a class="px-nav-toggle">
             <span class="px-nav-toggle-arrow"></span>
             <span class="navbar-toggle-icon"></span>
             <span class="px-nav-toggle-label">隐藏菜单</span>
         </a>
-        <ul class="px-nav-content">
+        <ul class="px-nav-content" data-widget="tree">
             <li class="px-nav-box">
                 <div class="avatar"><img src="img/user2-160x160.jpg" alt="" /></div>
                 <div class="info">
@@ -25,12 +25,19 @@
                 </div>
             </li>
             <li class="px-nav-header">导航菜单</li>
-            <li class="px-nav-item active open">
+            <li class="px-nav-item px-nav-dropdown">
                 <a href="javascript:void(0);"><i class="fa fa-list px-nav-item-icon"></i><span class="px-nav-item-label">系统管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                 <ul class="px-nav-dropdown-menu">
                     <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-desktop px-nav-item-icon"></i><span class="px-nav-item-label">系统日志</span></a></li>
                     <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-table px-nav-item-icon"></i><span class="px-nav-item-label">系统模块</span></a></li>
-                    <li class="px-nav-item open">
+                    <li class="px-nav-item px-nav-dropdown">
+                        <a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">用户管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
+                        <ul class="px-nav-dropdown-menu">
+                            <li class="px-nav-item active"><a href="javascript:void(0);"><i class="fa fa-th px-nav-item-icon"></i><span class="px-nav-item-label">用户权限</span></a></li>
+                            <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">用户列表</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="px-nav-item px-nav-dropdown">
                         <a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">用户管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                         <ul class="px-nav-dropdown-menu">
                             <li class="px-nav-item active"><a href="javascript:void(0);"><i class="fa fa-th px-nav-item-icon"></i><span class="px-nav-item-label">用户权限</span></a></li>
@@ -39,7 +46,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="px-nav-item">
+            <li class="px-nav-item px-nav-dropdown">
                 <a href="javascript:void(0);"><i class="fa fa-user px-nav-item-icon"></i><span class="px-nav-item-label">订单管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                 <ul class="px-nav-dropdown-menu">
                     <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">订单列表</span></a></li>
@@ -47,7 +54,7 @@
                     <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">酒店订单</span></a></li>
                 </ul>
             </li>
-            <li class="px-nav-item">
+            <li class="px-nav-item px-nav-dropdown">
                 <a href="javascript:void(0);"><i class="fa fa-user px-nav-item-icon"></i><span class="px-nav-item-label">订单管理</span><i class="fa fa-angle-right px-nav-dropdown-icon"></i></a>
                 <ul class="px-nav-dropdown-menu">
                     <li class="px-nav-item"><a href="javascript:void(0);"><i class="fa fa-dashboard px-nav-item-icon"></i><span class="px-nav-item-label">订单列表</span></a></li>
@@ -65,30 +72,17 @@
         <div class="px-navbar-menu">
         </div>
     </div>
-    <div class="px-content">Content</div>
+    <div class="px-content">
+        <div class="layui-fluid">
+            <table id="table"></table>
+        </div>
+    </div>
     <div class="px-nav-dimmer"></div>
-
+    <script type="text/javascript" src="plugins/layui/layui.js"></script>
     <script type="text/javascript">
-        
-        
-        function pxToggle() {
-            var pxNav = document.getElementById('pxNav'),clssName=pxNav.className;
-
-            if(clssName==='px-nav'){
-                var expand = document.body.clientWidth > 992;
-                if (expand) {
-                    pxNav.setAttribute('class', 'px-nav px-nav-collapse');
-                } else {
-                    pxNav.setAttribute('class', 'px-nav px-nav-expand');
-                }
-            }else{
-                if (clssName==='px-nav px-nav-collapse') {
-                    pxNav.setAttribute('class', 'px-nav px-nav-expand');
-                } else {
-                    pxNav.setAttribute('class', 'px-nav px-nav-collapse');
-                }        
-            }
-        }
+        layui.config({
+            base: 'js/'
+        }).use('index');
     </script>
 </body>
 </html>

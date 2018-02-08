@@ -1,3 +1,10 @@
+html{height: 100%;max-height: 100%;}
+body, html {margin:0;padding: 0;overflow: hidden;width: 100%;min-height: 100%;}
+body{position: relative;height: auto;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;background:#f2f2f2}
+ul,li{margin: 0;padding: 0;list-style: none}
+a,a:hover{text-decoration: none}
+*{box-sizing:border-box}
+
 
 .navbar-toggle{height:50px;line-height:50px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 .navbar-toggle{position:absolute;top:0;margin:0;width:50px;border:none;border-radius:0;text-align:center}
@@ -26,6 +33,8 @@
 .navbar-toggle {display: none;}
 }
 
+.px-content{/*transition:margin .3s*/padding:10px;background:#fff;}
+
 .px-navbar{position:absolute;top:0;right:0;left:0;z-index:1010;margin:0;border-radius:0;height: 50px}
 .px-navbar{background: #3c8dbc}
 .px-navbar-fixed .px-navbar{position:fixed!important}
@@ -39,7 +48,7 @@
 .px-nav~.px-navbar{left:50px;padding-left:0}
 }
 
-.px-nav{position:fixed;top:0;z-index:1050;display:block!important;width:80%;height:100%}
+.px-nav{position:fixed;top:0;z-index:1050;display:block!important;width:80%;height:100%;/*transition:width .3s*/}
 .px-nav{background: #222d32}
 
 .px-nav-expand{z-index:1052}
@@ -74,6 +83,7 @@
 @media (min-width:992px){.px-nav-expand~.px-nav-dimmer{display:none}
 }
 .px-nav-toggle{overflow:hidden;padding:0;width:50px;height:50px;border:none;border-radius:0;text-align:center;line-height:50px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.px-nav-toggle:hover{color:#fff;}
 .px-nav-toggle{color: #fff;background: #367fa9;}
 .px-nav .px-nav-toggle-arrow{border-top:3px solid transparent;border-bottom:3px solid transparent}
 .px-nav-expand .px-nav-toggle{width:80%}
@@ -126,22 +136,12 @@
 .px-nav-collapse .px-nav-box>.info,.px-nav-collapse .px-nav-header{display:none;}
 }
 
-.ant-menu-blue{border-right:none;}
-.ant-menu-blue, .ant-menu-blue .ant-menu-sub{color:#fff; background:#1e282c}
-.ant-menu-blue .ant-menu-inline.ant-menu-sub{color:#8aa4af; background:#2c3b41}
 
-.ant-menu-blue .ant-menu-item:hover, .ant-menu-blue .ant-menu-item-active, .ant-menu-blue .ant-menu-submenu-active, .ant-menu-blue .ant-menu-submenu-open,
-.ant-menu-blue .ant-menu-submenu-selected, .ant-menu-blue .ant-menu-submenu-title:hover{background-color:transparent;color:#fff;}
+/***layui****/
+.layui-table-view{margin:0;padding:0}
+.layui-table th, .layui-table td, .layui-table[lay-skin="line"], .layui-table[lay-skin="row"], .layui-table-view, .layui-table-header, .layui-table-tool, .layui-table-page, .layui-table-fixed-r, .layui-table-tips-main{border-color:#ccc;}
+.layui-table thead tr, .layui-table-header, .layui-table-tool, .layui-table-patch, .layui-table-mend, .layui-table-hover, .layui-table-click{background:#fff}
+.layui-table[lay-even] tr:nth-child(even), .layui-table tbody tr:hover{background:#eee}
+/***layui****/
 
-@media (min-width:544px) and (max-width:991px) {
-    .px-nav:not(.px-nav-expand) .ant-menu-blue>.ant-menu-submenu>.ant-menu-submenu-title>span>span,
-    .px-nav:not(.px-nav-expand) .ant-menu-blue>.ant-menu-submenu>.ant-menu-submenu-title .ant-menu-submenu-arrow{display:none}
-
-    .px-nav:not(.px-nav-expand) .ant-menu-blue>.ant-menu-submenu>ul{display:none}
-}
-@media (min-width:992px){
-    .px-nav-collapse .ant-menu-blue>.ant-menu-submenu>.ant-menu-submenu-title>span>span,
-    .px-nav-collapse .ant-menu-blue>.ant-menu-submenu>.ant-menu-submenu-title .ant-menu-submenu-arrow{display:none}
-
-    .px-nav-collapse .ant-menu-blue>.ant-menu-submenu>ul{display:none}
-}
+.px-content>.layui-fluid{padding:0}
