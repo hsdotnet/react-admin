@@ -1,9 +1,12 @@
 html{height: 100%;max-height: 100%;}
 body, html {margin:0;padding: 0;overflow: hidden;width: 100%;min-height: 100%;}
-body{position: relative;height: auto;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;background:#f2f2f2}
+body{position: relative;height: auto;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;background:#ecf0f5}
 ul,li{margin: 0;padding: 0;list-style: none}
 a,a:hover{text-decoration: none}
 *{box-sizing:border-box}
+
+.float-left{float:left}
+.float-right{float:right}
 
 
 .navbar-toggle{height:50px;line-height:50px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
@@ -138,10 +141,12 @@ a,a:hover{text-decoration: none}
 
 
 /***layui****/
-.layui-table-view{margin:0;padding:0}
 .layui-table th, .layui-table td, .layui-table[lay-skin="line"], .layui-table[lay-skin="row"], .layui-table-view, .layui-table-header, .layui-table-tool, .layui-table-page, .layui-table-fixed-r, .layui-table-tips-main{border-color:#ccc;}
 .layui-table thead tr, .layui-table-header, .layui-table-tool, .layui-table-patch, .layui-table-mend, .layui-table-hover, .layui-table-click{background:#fff}
 .layui-table[lay-even] tr:nth-child(even), .layui-table tbody tr:hover{background:#eee}
+.layui-table-view .layui-table th, .layui-table-view .layui-table td{padding:3px 0}
+
+.layui-input-sm{height:30px}
 /***layui****/
 
 .px-content>.layui-fluid{padding:0}
