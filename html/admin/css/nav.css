@@ -1,0 +1,79 @@
+.px-nav-content{position: relative;z-index: 2;float: none;width: 100%;user-select: none}
+
+.px-nav-item{position:relative;display:block;margin:0;padding:0;list-style:none;}
+.px-nav-item>a{position:relative;display:block;text-decoration:none;color:#b8c7ce;}
+.px-nav-content>.px-nav-item>a{padding:13px 5px 13px 15px;border-left:3px solid transparent}
+.px-nav-content>.px-nav-item:hover>a,.px-nav-content>.px-nav-item.open>a{color:#fff;background:#1e282c}
+.px-nav-content>.px-nav-item.open>a{border-left:3px solid #3c8dbc;}
+.px-nav-dropdown-menu>.px-nav-item>a{padding:8px 5px 8px 15px;}
+.px-nav-dropdown-menu>.px-nav-item>a:hover,.px-nav-dropdown-menu>.px-nav-item.active>a{color: #fff}
+.px-nav-dropdown-menu>.px-nav-item>a{padding-left:30px}
+.px-nav-dropdown-menu .px-nav-dropdown-menu>.px-nav-item>a{padding-left:50px}
+
+.px-nav-item-icon{width:20px;}
+.px-nav-dropdown-icon{position: absolute;right: 10px;top: 50%;margin-top: -7px;}
+
+.px-nav-dropdown-menu{display:none;}
+.px-nav-item.open>.px-nav-dropdown-menu{display:block}
+.px-nav-item.open>a>.px-nav-dropdown-icon{transform: rotate(90deg)}
+.px-nav-content>.px-nav-item>.px-nav-dropdown-menu{background:#2c3b41;}
+
+@media (min-width:544px) and (max-width:991px){
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>a .px-nav-dropdown-icon{display:none}
+    .px-nav:not(.px-nav-expand) .px-nav-content>.px-nav-item>.px-nav-dropdown-menu{display:none}
+}
+@media (min-width:992px){
+  .px-nav-collapse .px-nav-content>.px-nav-item>a .px-nav-item-label{display:none}
+  .px-nav-collapse .px-nav-content>.px-nav-item>a .px-nav-dropdown-icon{display:none}
+  .px-nav-collapse .px-nav-content>.px-nav-item>.px-nav-dropdown-menu{display:none}
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-dropdown-icon {
+  display: block !important;
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label,
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > .px-nav-dropdown-menu {
+  display: block !important;
+  position: absolute;
+  width: 180px;
+  left: 50px;
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label {
+  border-top-right-radius: 4px
+}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > .px-nav-dropdown-menu {
+  border-bottom-right-radius: 4px
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-item-label {
+  top: 0;
+  margin-left: -3px;
+  padding: 13px 5px 13px 15px;
+  background-color: inherit;
+}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover > a .px-nav-dropdown-icon {
+  position: relative !important;
+  float: right;
+  width: auto !important;
+  left: 175px !important;
+  top: 10px !important;
+  z-index: 900;
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item:hover .px-nav-dropdown-menu>.px-nav-item>a{padding-left:15px}
+.px-nav-collapse .px-nav-content>.px-nav-item:hover .px-nav-dropdown-menu .px-nav-dropdown-menu>.px-nav-item>a{padding-left:35px}
+
+
+.px-nav-transitioning {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height .35s ease;
+    -o-transition: height .35s ease;
+    transition: height .35s ease
+}
+
+.px-nav-collapse .px-nav-content>.px-nav-item>.px-nav-dropdown-menu{display:none}

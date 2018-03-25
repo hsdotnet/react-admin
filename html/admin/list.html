@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>list</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+    <link type="text/css" rel="stylesheet" href="plugins/jqGrid/ext/ui.jqgrid-ext.css"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <h2 class="title">系统-用户管理</h2>
+            <div class="actions">
+                <span class="record">共 28 条记录</span>
+                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> 刷新</button>
+                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> 添加</button>
+                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> 添加</button>
+            </div>
+        </header>
+        <div class="page-content">
+            <div class="searchbar form-inline">
+                <div class="form-group">
+                    <label>类别名称：</label>
+                    <input type="text" class="form-control form-control-sm"/>
+                </div>
+                <div class="form-group">
+                    <label>类别名称：</label>
+                    <input type="text" class="form-control form-control-sm"/>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary btn-sm">查询</button>
+                    <button type="button" class="btn btn-primary btn-sm">重置</button>
+                </div>
+            </div>
+            <div class="grid">
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="plugins/jqGrid/js/i18n/grid.locale-cn.js"></script>
+    <script type="text/javascript" src="plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="plugins/jqGrid/ext/jqGridExt.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            user.init();
+        })
+        var user = {
+            init:function () {
+                user.loadUserGrid();
+            },
+            loadUserGrid:function () {
+                var data = [
+      {
+          "id": 1,
+          "username": "user-0",
+          "realname": "女",
+          "createby": "城市-0",
+          "createtime": "2017-05-21 12:25:22"
+      },{
+          "id": 2,
+          "username": "user-0",
+          "realname": "女",
+          "createby": "城市-0",
+          "createtime": "2017-05-21 12:25:22"
+      },{
+          "id": 3,
+          "username": "user-0",
+          "realname": "女",
+          "createby": "城市-0",
+          "createtime": "2017-05-21 12:25:22"
+      }];
+                $('#jqGrid').jqGrid({
+                    //url: 'js/data/data.json',
+                    data: data,
+                    datatype: 'local',
+                    colModel: [
+                        { label: '编号', name: 'id', key:true, width: 75 },
+                        { label: '用户名', name: 'username',  width: 150 },
+                        { label: '真实姓名', name: 'realname', width: 150 },
+                        { label: '创建人', name: 'createby', width: 150 },
+                        { label: '创建时间', name: 'createtime', width: 150, formatter:'date',formatoptions: {srcformat:'Y-m-d H:i:s',newformat:'Y-m-d H:i:s'} }
+                    ],
+                    shrinkToFit: false,
+                    autowidth: true,
+                    height: $(window).height()-179,
+                    rowNum: 10,
+                    viewrecords: true,
+                    gridview: true,
+                    pager: '#jqGridPager'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+body{margin: 0;padding: 0;font-size: 12px;font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+.page-wrapper{margin: 0 auto;padding: 5px;}
+
+.page-header{margin: 5px 0;position: relative}
+.page-header>.title {
+    margin: 0;
+    font-size: 24px;
+}
+.page-header>.actions {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin: auto;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+.page-header>.actions>.record {color: #666;margin-right: 10px}
+
+.page-content{margin: 5px 0;border: 1px solid #ddd;padding: 5px}
+.page-content>.searchbar{margin-bottom: 10px}
+.page-content .form-group,.page-content .btn-group{margin-left: 5px;}
