@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        .px-item>ul{}
+        .px-item.open>ul{ display:block;}
+        .px-item a{display:block;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="px-item has-sub">
+            <a>test</a>
+            <ul id="gdgdsfs">
+                <li class="px-item"><a>fdsfdsfds</a></li>
+                <li class="px-item"><a>fdsfdsfds</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script src="../static/plugins/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.transit.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $('.px-item>a').click(function () {
+                console.log(document.getElementById('gdgdsfs')['scrollHeight']);
+                var t = $(this), l = t.parent('li'), u = t.next();
+
+                
+                //u.css({ height: 100 });
+                
+                //u.slideToggle(500);
+                //u.animate({ height: '+=' + 100 }, 200);
+            });
+        });
+
+    </script>
+</body>
+</html>

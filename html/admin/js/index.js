@@ -1,13 +1,10 @@
-﻿+function ($) {
-    'use strict';
-
-    var options = {
+﻿var pxTree = {
+    options: {
         animationSpeed: 350,
         accordion: true,
         followLink: false
-    };
-
-    var selector = {
+    },
+    selector: {
         dropdownMenu: '.px-nav-dropdown-menu',
         active: '.active',
         open: '.open',
@@ -17,124 +14,90 @@
         navCollapse: '.px-nav-collapse',
         navExpand: '.px-nav-expand',
         pxNav: '.px-nav'
-    };
-
-    var Tree = function (element, options) {
-      this.element = element;
-      this.options = options;
-  
-      //$(this.element).addClass(ClassName.tree);
-  
-      //$(Selector.treeview + Selector.active, this.element).addClass(ClassName.open);
-  
-      this._setUpListeners();
-    };
-
-
-    Tree.prototype.navExpand=function (tree, parentLi) {
-        if (options.accordion) {
-            var openMenuLi = parentLi.siblings(selector.open);
-            var openTree = openMenuLi.children(selector.dropdownMenu);
-            e.navCollapse(openTree, openMenuLi);
+    }, 
+    className: {
+        open: 'open',
+        transitioning: 'px-nav-transitioning',
+        pxNav: 'px-nav',
+        navCollapse: 'px-nav-collapse',
+        navExpand: 'px-nav-expand'
+    },
+    navExpand: function (tree, parentLi) {
+        if (pxTree.options.accordion) {
+            var openMenuLi = parentLi.siblings(pxTree.selector.open);
+            var openTree = openMenuLi.children(pxTree.selector.dropdownMenu);
+            pxTree.navCollapse(openTree, openMenuLi);
         }
 
         var complete = function () {
-            tree.removeClass(className.transitioning).height('auto');
+            tree.removeClass(pxTree.className.transitioning).height('auto');
         }
 
-        parentLi.addClass(className.open);
-        tree.addClass(className.transitioning).height(0).one("bsTransitionEnd", $.proxy(complete, this)).emulateTransitionEnd(options.animationSpeed).height(tree[0].scrollHeight);
-    };
-
-    Tree.prototype.navCollapse= function (tree, parentLi) {
+        parentLi.addClass(pxTree.className.open);
+        tree.addClass(pxTree.className.transitioning).height(0).one("bsTransitionEnd", $.proxy(complete, this)).emulateTransitionEnd(pxTree.options.animationSpeed).height(tree[0].scrollHeight);
+    },
+    navCollapse: function (tree, parentLi) {
         var complete = function () {
-            parentLi.removeClass(className.open);
-            tree.removeClass(className.transitioning).height('');
-            tree.find(selector.open).removeClass(className.open);
+            parentLi.removeClass(pxTree.className.open);
+            tree.removeClass(pxTree.className.transitioning).height('');
+            tree.find(pxTree.selector.open).removeClass(pxTree.className.open);
         }
 
         if (tree && tree.length) {
             tree.height(tree.height())[0].offsetHeight;
-            tree.addClass(className.transitioning).height(0).one("bsTransitionEnd", $.proxy(complete, this)).emulateTransitionEnd(options.animationSpeed);
+            tree.addClass(pxTree.className.transitioning).height(0).one("bsTransitionEnd", $.proxy(complete, this)).emulateTransitionEnd(pxTree.options.animationSpeed);
         }
-    }
+    },
+    init: function(){
+        $('body').on('click', pxTree.selector.trigger, function () {
+            var _this = $(this),
+                dropdownMenu = _this.next(pxTree.selector.dropdownMenu),
+                parentLi = _this.parent(),
+            isOpen = parentLi.hasClass(pxTree.className.open);
     
-  
-    // Private
+            if (!parentLi.is(pxTree.selector.dropdown)) {
+                return;
+            }
     
-    Tree.prototype._setUpListeners = function () {
-      var that = this;
-  
-
-      
-      $('body').on('click', selector.trigger, function () {
-        var _this = $(this),
-            dropdownMenu = _this.next(selector.dropdownMenu),
-            parentLi = _this.parent(),
-        isOpen = parentLi.hasClass(className.open);
-
-        if (!parentLi.is(selector.dropdown)) {
-            return;
-        }
-
-        if (isOpen) {
-            that.navCollapse(dropdownMenu, parentLi);
-        } else {
-            that.navExpand(dropdownMenu, parentLi);
-        }
-    }).on('click', selector.navToggle, function () {
-        var pxNav = $(selector.pxNav);
-        if (pxNav.attr('class') === className.pxNav) {
-            var expand = w.width() > 992;
-            if (expand) {
-                pxNav.addClass(className.navCollapse);
+            if (isOpen) {
+                pxTree.navCollapse(dropdownMenu, parentLi);
             } else {
-                pxNav.addClass(className.navExpand);
+                pxTree.navExpand(dropdownMenu, parentLi);
             }
-        } else {
-            if (pxNav.hasClass(className.navCollapse)) {
-                pxNav.removeClass(className.navCollapse).addClass(className.navExpand);
+        }).on('click', pxTree.selector.navToggle, function () {
+            var pxNav = $(pxTree.selector.pxNav);
+            if (pxNav.attr('class') === pxTree.className.pxNav) {
+                var expand = $(window).width() > 992;
+                if (expand) {
+                    pxNav.addClass(pxTree.className.navCollapse);
+                } else {
+                    pxNav.addClass(pxTree.className.navExpand);
+                }
             } else {
-                pxNav.removeClass(className.navExpand).addClass(className.navCollapse);
+                if (pxNav.hasClass(pxTree.className.navCollapse)) {
+                    pxNav.removeClass(pxTree.className.navCollapse).addClass(pxTree.className.navExpand);
+                } else {
+                    pxNav.removeClass(pxTree.className.navExpand).addClass(pxTree.className.navCollapse);
+                }
             }
-        }
-    });
-
-
-    };
-  
-    // Plugin Definition
-    // =================
-    function Plugin(option) {
-      return this.each(function () {
-        var $this = $(this);
-        var data  = $this.data(DataKey);
-  
-        if (!data) {
-          var options = $.extend({}, Default, $this.data(), typeof option == 'object' && option);
-          $this.data(DataKey, new Tree($this, options));
-        }
-      });
+        });
     }
-  
-    var old = $.fn.tree;
-  
-    $.fn.tree             = Plugin;
-    $.fn.tree.Constructor = Tree;
-  
-    // No Conflict Mode
-    // ================
-    $.fn.tree.noConflict = function () {
-      $.fn.tree = old;
-      return this;
-    };
-  
-    // Tree Data API
-    // =============
-    $(window).on('load', function () {
-      $(Selector.data).each(function () {
-        Plugin.call($(this));
-      });
-    });
-  
-  }(jQuery);
+};
+
+var pxAdmin={
+    init:function(){
+        pxAdmin.layout();
+        $(window).resize(function(){
+            pxAdmin.layout();
+        })
+    },
+    layout:function(){
+        var w = $(window).height();
+        $('#px-content').css({height:w-50});
+    }
+}
+
+$(function(){
+    pxAdmin.init();
+    pxTree.init();
+})

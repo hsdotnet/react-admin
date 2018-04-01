@@ -17,7 +17,7 @@
             <span class="navbar-toggle-icon"></span>
             <span class="px-nav-toggle-label">隐藏菜单</span>
         </a>
-        <ul class="px-nav-content" data-widget="tree">
+        <ul class="px-nav-content">
             <li class="px-nav-box">
                 <div class="avatar"><img src="img/user2-160x160.jpg" alt="" /></div>
                 <div class="info">
@@ -71,13 +71,40 @@
         </div>
         <a class="navbar-toggle collapsed"><i class="navbar-toggle-icon"></i></a>
         <div class="px-navbar-menu">
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" aria-expanded="false">
+                        admin
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" aria-expanded="false">
+                        <img src="img/user2-160x160.jpg" alt="" class="px-navbar-image">
+                        <span>admin</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="px-content">
-        
+    <div class="px-content" id="px-content">
+        <iframe class="px-iframe" src="list.html"></iframe>
     </div>
     <div class="px-nav-dimmer"></div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

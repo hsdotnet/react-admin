@@ -22,7 +22,10 @@ a,a:hover{text-decoration: none}
 .px-navbar>.px-logo{width:180px;text-align: center }
 .px-navbar>.px-logo:hover{background-color: #367fa9}
 .px-navbar>.px-logo>a{height:50px; line-height:50px;color: #fff;font-size: 20px;}
-
+@media (min-width: 768px){
+.px-navbar>.px-logo {
+    float: left;
+}
 .navbar-toggle-icon{position:relative}
 .navbar-toggle-icon,.navbar-toggle-icon:after,.navbar-toggle-icon:before{display:block;width:12px;height:2px;margin:auto;background:#666}
 .navbar-toggle-icon:after,.navbar-toggle-icon:before{position:absolute;content:""}
@@ -36,7 +39,9 @@ a,a:hover{text-decoration: none}
 .navbar-toggle {display: none;}
 }
 
-.px-content{/*transition:margin .3s*/padding:10px;background:#fff;}
+.px-content{/*transition:margin .3s*/background:#fff;}
+
+.px-iframe{width: 100%;height: 100%; border: none;}
 
 .px-navbar{position:absolute;top:0;right:0;left:0;z-index:1010;margin:0;border-radius:0;height: 50px}
 .px-navbar{background: #3c8dbc}
@@ -59,10 +64,34 @@ a,a:hover{text-decoration: none}
 .px-nav{left:-80%}
 .px-nav .px-nav-toggle,.px-nav.px-nav-expand{left:0}
 
-.px-navbar-menu{float: right;height: 100%;padding-right: 10px;color: #fff}
+.px-navbar-menu{height: 100%;padding-right: 10px;color: #fff}
 .px-navbar-menu>.user{cursor: pointer;padding: 0 12px;display: inline-block;-webkit-transition: all .3s;-o-transition: all .3s;transition: all .3s;height: 100%;}
 .px-navbar-menu>.user:hover,.px-navbar-menu>.user:focus{background: rgba(0,0,0,0.1);color: #f6f6f6}
 .px-navbar-menu>.user .user-avatar{margin: 13px 8px; color: #1890ff;background: rgba(255, 255, 255, 0.85);vertical-align: middle;}
+
+.px-navbar-menu>.nav>li>a {
+    height: 50px;
+    line-height: 50px;
+}
+
+.px-navbar-menu>.nav>li>a {
+    padding:0 15px;
+}
+
+.px-navbar-image {
+    position: relative;
+    top: 21px;
+    display: block;
+    float: left;
+    height: 24px;
+    margin: -12px 0 0;
+    border-radius: 999px;
+}
+@media (min-width: 768px){
+.px-navbar-image {
+    top: 25px;
+    margin-right: 0;
+}
 
 @media (min-width:544px){
 .px-nav{width:50px}
@@ -87,7 +116,7 @@ a,a:hover{text-decoration: none}
 }
 .px-nav-toggle{overflow:hidden;padding:0;width:50px;height:50px;border:none;border-radius:0;text-align:center;line-height:50px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 .px-nav-toggle:hover{color:#fff;}
-.px-nav-toggle{color: #fff;background: #367fa9;}
+.px-nav-toggle{color: #fff!important;background: #367fa9;}
 .px-nav .px-nav-toggle-arrow{border-top:3px solid transparent;border-bottom:3px solid transparent}
 .px-nav-expand .px-nav-toggle{width:80%}
 .px-nav-fixed .px-nav-toggle,.px-navbar-fixed>.px-nav .px-nav-toggle{position:fixed}

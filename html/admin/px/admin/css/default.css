@@ -1,0 +1,77 @@
+﻿.px-navbar{color:#444;box-shadow:0 2px 2px rgba(0,0,0 ,.05),0 1px 0 rgba(0,0,0,.05)}
+.px-navbar .dropdown-menu a,.px-navbar .navbar-nav a{color:#444}
+.px-navbar .dropdown-menu a:active,.px-navbar .dropdown-menu a:focus,.px-navbar .dropdown-menu a:hover,.px-navbar .dropdown.active>a,.px-navbar .dropdown.active>a:active,.px-navbar .dropdown.active>a:focus,.px-navbar .dropdown.active>a:hover,.px-navbar .dropdown.open>a,.px-navbar .dropdown.open>a:active,.px-navbar .dropdown.open>a:focus,.px-navbar .dropdown.open>a:hover,.px-navbar .navbar-nav a:active,.px-navbar .navbar-nav a:focus,.px-navbar .navbar-nav a:hover,.px-navbar li.active>a,.px-navbar li.active>a:active,.px-navbar li.active>a:focus,.px-navbar li.active>a:hover{color:#444;background:rgba(0,0,0,.03)}
+.px-navbar .dropdown-menu li:hover,.px-navbar .navbar-nav li:hover{background:0 0}
+.px-navbar .navbar-brand{background:0 0!important}
+.px-navbar form.navbar-form .form-control{color:#444;border-color:transparent!important;background:#f8f8f8}
+.px-navbar .navbar-toggle{color:#444}
+.px-navbar .navbar-toggle .navbar-toggle-icon,.px-navbar .navbar-toggle .navbar-toggle-icon:after,.px-navbar .navbar-toggle .navbar-toggle-icon:before{opacity:1;color:#444;background:#444}
+.px-navbar .navbar-toggle.collapsed{color:#444}
+.px-navbar .navbar-toggle.collapsed .navbar-toggle-icon,.px-navbar .navbar-toggle.collapsed .navbar-toggle-icon:after,.px-navbar .navbar-toggle.collapsed .navbar-toggle-icon:before{color:#444;background:#444}
+.px-navbar .ps-scrollbar-x-rail,.px-navbar .ps-scrollbar-y-rail{background-color:transparent!important}
+.px-navbar .ps-scrollbar-x-rail>.ps-scrollbar-x,.px-navbar .ps-scrollbar-y-rail>.ps-scrollbar-y{background-color:rgba(0,0,0,.3)!important}
+.px-navbar .navbar-header{color:#444;background:#fff}
+.px-navbar .navbar-header a{color:#444}
+.px-navbar .navbar-header a:focus,.px-navbar .navbar-header a:hover{color:#444;background:rgba(0,0,0,.03)}
+.px-navbar .dropdown-menu>li.divider{background:#f1f1f1}
+@media (max-width:767px){.px-navbar .navbar-collapse{border-color:#f1f1f1;background:#fff}
+.px-navbar .dropdown-menu li,.px-navbar .navbar-nav li{border-color:#f1f1f1}
+.px-navbar .dropdown.open{background:#f6f6f6!important;border-color:#e7e7e7}
+.px-navbar .dropdown.open li{border-color:#e7e7e7}
+}
+@media (min-width:768px){.px-navbar,.px-navbar .dropdown-menu,.px-navbar .dropdown-multi-column,.px-navbar .navbar-collapse{background:#fff}
+.px-navbar .navbar-collapse,.px-navbar .navbar-nav>li,.px-navbar [class*=" widget-"],.px-navbar [class^=widget-]{border-color:#f1f1f1}
+.px-navbar .dropdown-menu .dropdown-toggle:hover>a{color:#444;background:rgba(0,0,0,.03)}
+.px-navbar [class*=" widget-"] a,.px-navbar [class*=" widget-"] a:focus,.px-navbar [class*=" widget-"] a:hover,.px-navbar [class^=widget-] a,.px-navbar [class^=widget-] a:focus,.px-navbar [class^=widget-] a:hover{background:0 0}
+.px-navbar .navbar-header a,.px-navbar .navbar-nav>li>a{-webkit-transition:all .3s;transition:all .3s}
+}
+@media (min-width:992px){.px-nav-left:not(.px-nav-collapse)~.px-navbar .navbar-header{color:#444;background:#fff}
+.px-nav-left:not(.px-nav-collapse)~.px-navbar .navbar-header a{color:#444}
+.px-nav-left:not(.px-nav-collapse)~.px-navbar .navbar-header a:focus,.px-nav-left:not(.px-nav-collapse)~.px-navbar .navbar-header a:hover{color:#777}
+.px-nav-toggle{box-shadow:0 2px 2px rgba(0,0,0 ,.05),0 1px 0 rgba(0,0,0,.05)}
+}
+.px-nav,.px-nav-item a{color:#8aa4af}
+.px-nav{background:#222d32}
+.px-nav .ps-scrollbar-x-rail,.px-nav .ps-scrollbar-y-rail{background-color:transparent!important}
+.px-nav .ps-scrollbar-x-rail>.ps-scrollbar-x,.px-nav .ps-scrollbar-y-rail>.ps-scrollbar-y{background-color:rgba(255,255,255,.3)!important}
+.px-nav-dimmer{background:rgba(35,39,45,.4)}
+.px-nav-item a:active,.px-nav-item a:focus,.px-nav-item a:hover{color:#fff;background:0 0}
+.px-nav-item.active>a{color:#fff!important;}
+.px-nav-dropdown.active>a .px-nav-icon,.px-nav-item.active>a .px-nav-icon{}
+.px-nav-dropdown.active>a,.px-nav-dropdown.active>a:active,.px-nav-dropdown.active>a:focus,.px-nav-dropdown.active>a:hover{background:0 0}
+.px-nav-tooltip{background:#181b1f;color:#fff}
+.px-nav-left .px-nav-tooltip:before{border-right-color:#181b1f}
+.px-nav-right .px-nav-tooltip:before{border-left-color:#181b1f}
+.px-nav-dropdown-menu-title,.px-show>a{background:#1e282c!important;color:#fff!important}
+.px-nav-dropdown-menu-title .px-nav-icon,.px-show>a .px-nav-icon{color:#fff!important}
+.px-nav-dropdown-menu{background:#2c3b41}
+.px-nav-toggle{color:#444;background:#f8f8f8}
+.px-nav-toggle .navbar-toggle-icon,.px-nav-toggle .navbar-toggle-icon:after,.px-nav-toggle .navbar-toggle-icon:before{color:#444;background:#444}
+.px-nav-box{border-color:#2d323a;color:#fff}
+.px-nav-box .close{color:#9fa9b9}
+.px-nav-box .close:active,.px-nav-box .close:focus,.px-nav-box .close:hover{color:#fff}
+.px-nav-box .btn-outline{border-color:#2d323a;color:#9fa9b9}
+.px-footer,.px-footer hr{border-color:#e6e6e6}
+.px-nav-static .px-nav-dropdown>a,.px-nav-static .px-nav-dropdown>a:focus,.px-nav-static .px-nav-dropdown>a:hover{color:#9fa9b9}
+@media (max-width:991px){.px-nav-dropdown-menu .px-open>a,.px-nav.px-nav-expand .px-open>a{color:#fff}
+}
+@media (min-width:992px){.px-nav-dropdown-menu .px-open>a,.px-nav:not(.px-nav-collapse) .px-open>a{color:#fff}
+}
+.px-footer{background:#fff;color:#444}
+.px-footer a{color:#666}
+.px-footer a:focus,.px-footer a:hover{color:#444}
+.px-footer .text-muted{color:#888!important}
+.widget-timeline-icon,.widget-timeline-time{color:#444}
+.widget-timeline-bullet,.widget-timeline-bullet:before,.widget-timeline-icon,.widget-timeline-icon:before,.widget-timeline-image:before,.widget-timeline-time,.widget-timeline:after,.widget-timeline:before{background:#e7e7e7}
+:not(.panel) .widget-pricing .widget-pricing-item{border-color:#e2e2e2}
+:not(.panel) .widget-pricing-simple .widget-pricing-item{border-color:rgba(226,226,226,0)}
+:not(.panel) .widget-pricing-simple .widget-pricing-active{border-color:#e2e2e2}
+:not(.panel) .widget-pricing-simple.widget-pricing-hover:hover .widget-pricing-item{border-color:rgba(226,226,226,0)}
+:not(.panel) .widget-pricing-expanded .widget-pricing-item,:not(.panel) .widget-pricing-expanded.widget-pricing-simple .widget-pricing-active,:not(.panel) .widget-pricing-expanded.widget-pricing-simple.widget-pricing-hover:hover .widget-pricing-item,:not(.panel) .widget-pricing-simple.widget-pricing-hover:hover .widget-pricing-item:hover{border-color:#e2e2e2}
+.widget-timeline-section{color:#444;background:#e7e7e7}
+.px-navbar .dropdown-multi-column .dropdown-menu{border-color:#e5e5e5}
+.px-nav-item a:hover:before,.px-nav-item.active:not(.px-nav-dropdown)>a:before{position:absolute;top:0;bottom:0;left:0;display:block;width:3px;content:"";background:#2a94db}
+.px-nav .px-nav-item>a[class*=" bg-"]:before,.px-nav .px-nav-item>a[class^=bg-]:before,.px-nav.px-nav-static .px-nav-dropdown>a:before{display:none!important}
+@media (min-width:992px){.px-nav-off-canvas.px-nav-collapse .px-nav-toggle{box-shadow:0 2px 2px rgba(0,0,0,.05),0 1px 0 rgba(0,0,0,.05)}
+}
+.pace-progress{background:#2a94db}
