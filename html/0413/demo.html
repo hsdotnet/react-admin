@@ -1,0 +1,84 @@
+﻿
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" class="px-demo-stylesheet-bs">
+    
+    <style>
+        /*********************************************************************/
+.px-content{position:relative}
+.px-tab-nav{height:40px;left:0;right:0;top:0;z-index:100;border-bottom:2px solid #222d32;background:#fefefe}
+.px-tab-nav .px-tab-wrapper{position:relative;height:40px;overflow:hidden;margin:0 80px 0 0}
+.px-tab-nav .px-tab-wrapper-margin{margin:0 120px 0 40px}
+.px-tab-nav .px-tab-list{position:absolute;width:100000px;left:0;margin:0;padding:0}
+.px-tab-nav .px-tab-list>li{position:relative;float:left;list-style:none;}
+.px-tab-nav .px-tab-list>li>a{position:relative;color:#475059;display:block;line-height:20px;padding:10px}
+.px-tab-nav .px-tab-list>li.active>a,.px-tab-nav .px-tab-list>li>a:focus,.px-tab-nav .px-tab-list>li>a:hover{background:#3d4a5d;color:#fff;text-decoration:none}
+.px-tab-nav .px-tab-list>li>a>i{text-align:center;width:14px}
+.px-tab-nav .px-tab-list>li>a>.px-tab-icon{margin-right:5px}
+.px-tab-nav .px-tab-list>li>a>.px-tab-close-icon{margin-left:5px}
+.px-tab-nav .px-tab-list>li>a>.px-tab-close-icon:hover{color:#f96868}
+.px-tab-nav>.px-tab-tool{height:38px;margin:0;position:absolute;top:0;width:40px;cursor:pointer;color:#475059}
+.px-tab-nav>.px-tab-tool>i.px-tab-tool-icon{display:block;text-align:center;line-height:40px}
+.px-tab-nav>.px-tab-scroll-left{border-right:1px solid #ccc;left:0;display:none}
+.px-tab-nav>.px-tab-scroll-right{border-left:1px solid #ccc;right:80px;display:none}
+.px-tab-nav>.px-tab-more{border-left:1px solid #ccc;right:40px}
+.px-tab-nav>.px-tab-max{border-left:1px solid #ccc;right:0}
+.px-tab-more .dropdown-menu{right:0;left:auto}
+.px-tab-iframe{width:100%;height:100%;border:none;display:none}
+.px-tab-iframe.active{display:block}
+    </style>
+</head>
+<body>
+    <input type="button" value="add" id="btnTest" /><br /><br />
+    <div id="px-content" style="position:relative;width:560px">
+        <div class="px-tab-nav">
+            <div class="px-tab-tool px-tab-scroll px-tab-scroll-left"><i class="px-tab-tool-icon fa fa-backward"></i></div>
+            <div class="px-tab-wrapper">
+                <ul class="px-tab-list"></ul>
+            </div>
+            <div class="px-tab-tool px-tab-scroll px-tab-scroll-right"><i class="px-tab-tool-icon fa fa-forward"></i></div>
+            <div class="px-tab-tool px-tab-more">
+                <i class="px-tab-tool-icon fa fa-arrow-down" data-toggle="dropdown"></i>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);" data-type="current"><i class="fa fa-close"></i> 关闭当前页</a></li>
+                    <li><a href="javascript:void(0);" data-type="other"><i class="fa fa-close"></i> 关闭其他</a></li>
+                    <li><a href="javascript:void(0);" data-type="all"><i class="fa fa-close"></i> 关闭所有</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0);" data-type="reload"><i class="fa fa-power-off"></i> 刷新</a></li>
+                </ul>
+            </div>
+            <div class="px-tab-tool px-tab-max"><i class="px-tab-tool-icon fa fa-arrows-alt"></i></div>
+        </div>
+        <div class="px-tab-content" style="height:200px"></div>
+    </div>
+
+    
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/px-util.js"></script>
+    <script type="text/javascript" src="assets/js/px-tab.js"></script>
+    <script type="text/javascript">
+        var index = 0;
+
+        $(function () {
+
+            //var tabs = [];
+
+            $('#px-content').pxTab({ tabs: [{ id: index, name: 'Tab' + index, url: 'desktop.html', closed: true }] });
+
+            $('#btnTest').click(function () {
+
+                index++;
+
+                var pxTab = $('#px-content').data('px.tab');
+                pxTab.add({ id: index, name: 'Tab' + index, url: 'desktop.html', closed: true });
+            });
+
+        })
+    </script>
+</body>
+</html>
